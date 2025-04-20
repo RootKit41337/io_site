@@ -258,6 +258,8 @@ footer {
     left: 50%;
     margin-left: -50px;
     top: -20px;
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .timeline-content {
@@ -267,6 +269,8 @@ footer {
     background-color: white;
     border-radius: 5px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .timeline-item:nth-child(odd) .timeline-content {
@@ -450,6 +454,21 @@ footer {
     .btn {
         width: 100%;
     }
+
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-date {
+        left: 30px;
+        margin-left: 0;
+        width: 80px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        left: 60px !important;
+    }
 }
 
 @media (max-width: 480px) {
@@ -471,6 +490,24 @@ footer {
 
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .timeline-date {
+        width: 60px;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .timeline-content {
+        padding: 15px;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
     }
 }
 

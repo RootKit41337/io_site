@@ -72,8 +72,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Улучшенное мобильное меню
-const nav = document.querySelector('nav');
+// Мобильное меню
 const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
@@ -214,26 +213,4 @@ document.querySelectorAll('.hero-content h1').forEach(heading => {
     };
     
     typeWriter();
-});
-
-// Бургер-меню
-const burgerMenu = document.querySelector('.burger-menu');
-const navigationMenu = document.querySelector('nav ul');
-
-burgerMenu.addEventListener('click', () => {
-    burgerMenu.classList.toggle('active');
-    navigationMenu.classList.toggle('active');
-});
-
-// Плавная прокрутка для якорных ссылок
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
 }); 

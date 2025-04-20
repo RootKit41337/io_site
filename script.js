@@ -98,14 +98,11 @@ menuBtn.addEventListener('click', () => {
     }
 });
 
-// Закрытие меню при клике на пункт
+// Закрытие меню при клике на ссылку
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            menuBtn.classList.remove('active');
-            document.querySelector('.nav-links').classList.remove('active');
-            isMenuOpen = false;
-        }
+        navLinks.classList.remove('active');
+        menuBtn.classList.remove('active');
     });
 });
 
@@ -228,4 +225,17 @@ const navigationMenu = document.querySelector('nav ul');
 burgerMenu.addEventListener('click', () => {
     burgerMenu.classList.toggle('active');
     navigationMenu.classList.toggle('active');
+});
+
+// Плавная прокрутка для якорных ссылок
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 }); 

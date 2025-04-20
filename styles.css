@@ -386,101 +386,87 @@ footer {
     box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
 }
 
+/* Медиа-запросы для адаптивности */
 @media (max-width: 768px) {
     .menu-btn {
         display: block;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 70%;
+        width: 100%;
         height: 100vh;
-        background: white;
+        background-color: #fff;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 2rem;
-        transition: right 0.3s ease-in-out;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
     }
-    
+
     .nav-links.active {
         right: 0;
     }
-    
+
     .nav-links li {
         margin: 1.5rem 0;
-        opacity: 0;
-        transform: translateX(20px);
-        transition: all 0.3s ease;
     }
-    
-    .nav-links.active li {
-        opacity: 1;
-        transform: translateX(0);
-        transition-delay: calc(0.1s * var(--i));
-    }
-    
+
     .nav-links a {
         font-size: 1.2rem;
-        padding: 0.5rem 1rem;
-        display: block;
-        width: 100%;
-        text-align: center;
     }
-    
+
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1.2rem;
     }
-    
+
     section {
         padding: 3rem 5%;
     }
-    
+
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 15px;
-        padding: 15px;
     }
-    
+
     .gallery-grid img {
         height: 200px;
     }
-    
-    .timeline::before {
-        left: 30px;
-    }
-    
-    .timeline-date {
-        left: 30px;
-        margin-left: 0;
-    }
-    
-    .timeline-content {
-        width: calc(100% - 60px);
-        left: 60px !important;
-    }
-    
-    .places-grid, .traditions-grid, .institutions-grid {
-        grid-template-columns: 1fr;
-    }
-    
+
     .about-buttons {
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
+        gap: 1rem;
     }
-    
+
     .btn {
         width: 100%;
-        max-width: 250px;
-        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .attractions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 }
 

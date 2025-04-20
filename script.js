@@ -74,14 +74,11 @@ document.head.appendChild(style);
 
 // Улучшенное мобильное меню
 const nav = document.querySelector('nav');
-const menuBtn = document.createElement('button');
-menuBtn.className = 'menu-btn';
-menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-nav.appendChild(menuBtn);
+const menuBtn = document.querySelector('.menu-btn');
+const navLinks = document.querySelector('.nav-links');
 
 let isMenuOpen = false;
 menuBtn.addEventListener('click', () => {
-    const navLinks = document.querySelector('.nav-links');
     isMenuOpen = !isMenuOpen;
     
     menuBtn.classList.toggle('active');
@@ -103,6 +100,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuBtn.classList.remove('active');
+        isMenuOpen = false;
     });
 });
 
@@ -110,7 +108,7 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         menuBtn.classList.remove('active');
-        document.querySelector('.nav-links').classList.remove('active');
+        navLinks.classList.remove('active');
         isMenuOpen = false;
     }
 });
